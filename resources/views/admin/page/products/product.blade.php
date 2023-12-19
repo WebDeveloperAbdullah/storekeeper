@@ -21,26 +21,33 @@
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
                                 <tr class="text-white">
-                                    <th scope="col"></th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Invoice</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">I/D</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Stock</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($data as $data)
                                 <tr>
-                                @foreach($data as $data)
+                              
                                     <td>{{$data->id}}</td>
-                                    <td></td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td>$123</td>
-                                    <td>Paid</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
+                                    <td>{{$data->title}}</td>
+                                    <td>{{$data->price}}</td>
+                                    <td>{{$data->stock}}</td>
+                                    
+                                        
+                                    <td>
+                                        <form action="{{route('adminPanal.categoryDelete',$data->id)}}" method="POST" >
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger ">Delete</button>
+                                        </form>
+                                        <a class="btn btn-sm btn-success" href="{{route('adminPanal.productDetail',$data->id)}}">Detail</a>
+                                        <a class="btn btn-sm btn-info" href="{{route('adminPanal.productEdit',$data->id)}}">Edit</a>
+                                    </td>
+</tr>
                                 @endforeach
                              </tbody>
                         </table>

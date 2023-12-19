@@ -7,44 +7,59 @@ use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
-    function product(){
+  public  function product(){
         $data=DB::table('products')->get();
         return view('admin.page.products.product',compact('data'));
     }
 
-    function productAdd(){
+ public   function productAdd(){
         return view('admin.page.products.productAdd');
     }
 
-    function productAddCore(Request $request){
-        $productName=$request->productName;
-        $productPrice=$request->productPrice;
-        $productStock=$request->productStock;
-        $productImage=$request->productImage;
-        $category_id=$request->category_id;
-        $brand_id=$request->brand_id;
+   public function productStore(Request $request){
+        
+        
         $this->validate($request,[
-            'title'=>'required|string|max:200',
-            'stock'=>'required|integer|max:50',
-            'price'=>'required|decimal|max:50',
-            'productImage'=>'required|string|image|mines:png,jpg,gif,svg|max:10000',
-            'category_id'=>'required|integer|max:50',
-            'brand_id'=>'required|integer|max:50',
+            'title'=>'required|max:200',
+            'price'=>'required|max:50',
+            'stock'=>'required|max:50'
 
         ]);
-       
-
         DB::table('products')->insert([
-            'title'=>$productName,
-            'stock'=>$productStock,
-            'price'=>$productPrice,
-            'productImage'=>$productImage,
-            'category_id'=>$category_id,
-            'brand_id'=>$brand_id
+            'title' => $request->productName,
+            'price' => $request->productPrice,
+            'stock' => $request->productStock
 
         ]);
 
-        return back()->with('success','Product Add Success');
+          return back()->with('success','Product Add Success');
+    }
+
+
+    public function productDetail($id){
+        $data=DB::table('products')->where('id',$id)->get();
+        return view('admin.page.products.productDetail',compact('data'));
+
+    }
+
+    
+    public function productEdit($id){
+        $data=DB::table('products')->where('id',$id)->get();
+
+        return view('admin.page.products.productEdit',compact('data'));
+
+    }
+
+    public function productStoreCore(Request $request,$id){
+        DB::table('products')->where('id',$id)->update([
+            'title' => $request->productName,
+            'price' => $request->productPrice,
+            'stock' => $request->productStock
+
+        ]);
+
+        return redirect()->back()->with('success','Product update Sucess');
+
     }
 
 }

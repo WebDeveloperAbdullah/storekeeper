@@ -60,8 +60,11 @@ Route::post('/brandEditCore/{id}',[BrandsController::class,'brandEditCore'])->na
 // product route
 Route::get('/product',[ProductsController::class,'product'])->name('product');
 Route::get('/productAdd',[ProductsController::class,'productAdd'])->name('productAdd');
-Route::post('/productAddCore',[ProductsController::class,'productAddCore'])->name('productAddCore');
-Route::post('/productEdit',[ProductsController::class,'productEdit'])->name('productEdit');
+Route::get('/productDetail/{id}',[ProductsController::class,'productDetail'])->name('productDetail');
+Route::post('/productStore',[ProductsController::class,'productStore'])->name('productStore');
+Route::get('/productEdit/{id}',[ProductsController::class,'productEdit'])->name('productEdit');
+Route::post('/productStoreCore/{id}',[ProductsController::class,'productStoreCore'])->name('productStoreCore');
+
 
 
 });
