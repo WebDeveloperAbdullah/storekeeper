@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     function reaisterView(){
-        return view('page.reaister');
+        return view('admin.page.reaister');
     }
 
     function reaister(Request $request){

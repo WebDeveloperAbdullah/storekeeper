@@ -32,12 +32,12 @@
 </head>
 
 <body>
-@include('component.header')
+@include('admin.component.header')
 
 @yield('content')
             <!-- Recent Sales Start -->
             <!-- Footer Start -->
-            @include('component.footer')
+            @include('admin.component.footer')
 </body>
 
 </html>

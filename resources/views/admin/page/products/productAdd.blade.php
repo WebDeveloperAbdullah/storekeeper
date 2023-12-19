@@ -1,4 +1,4 @@
-@extends('layout.master');
+@extends('admin.layout.master');
 
 @section('content');
 
@@ -11,19 +11,13 @@
                            
                             <h3>Category</h3>
                         </div>
-                        <form action="{{route('productAddCore')}}" method="post">
+                        <form action="{{route('adminPanal.productAddCore')}}" method="post">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="productName" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Product Name</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="short_des" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Short Des</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="file" class="form-control" name="productImage" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Product Image</label>
-                        </div>
+                      
+                       
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="productPrice" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Product price</label>
@@ -32,23 +26,41 @@
                             <input type="text" class="form-control" name="productStock" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Product stock</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="productEnum" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Product Enum</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <section class="form-control" name='category_id' >Product Category
 
-                            <option value=""></option>
-                            </section>
-                           
-                        </div>
                         <div class="form-floating mb-3">
-                        <section class="form-control" name="brand_id" >Product Brand
-                           <option value=""></option>
-                            </section>
-                            <label for="floatingInput">Product Name</label>
+                            <input type="file" class="form-control" name="productImage" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Product Image</label>
                         </div>
+
+                        <div class="form-floating mb-3">
+                            
+                            <label for="floatingInput">Product Brand</label>
+
+                            <select class="form-control" name="brand_id" id="floatingInput">
+                                @php 
+                                    $data=DB::table('brands')->get();
+                                @endphp
+                                @foreach($data as $data)
+                                <option value="{{$data->id}}">{{$data->brandName}}</option>
+                              @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            
+                            <label for="floatingInput">Product Category</label>
+                            <select class="form-control" name="category_id" id="floatingInput">
+                            @php 
+                                    $data=DB::table('categories')->get();
+                                @endphp
+                                @foreach($data as $data)
+                                <option value="{{$data->id}}">{{$data->categoryName}}</option>
+                              @endforeach
+                            </select>
+                        </div>
+                     
+                 
+                       
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Save</button>
                       
                         </form>

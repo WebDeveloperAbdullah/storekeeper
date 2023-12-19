@@ -27,26 +27,26 @@
                 <div class="navbar-nav w-100">
                     <a href="" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Categories</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-table me-2"></i>Categories</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{route('category')}}" class="dropdown-item">category</a>
-                            <a href="{{route('categoryAdd')}}" class="dropdown-item">categoryAdd</a>
+                            <a href="{{route('adminPanal.category')}}" class="dropdown-item">category</a>
+                            <a href="{{route('adminPanal.categoryAdd')}}" class="dropdown-item">categoryAdd</a>
                          
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Brands</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-table me-2"></i>Brands</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{route('brands')}}" class="dropdown-item">Brands</a>
-                            <a href="{{route('brandAdd')}}" class="dropdown-item">brandAdd</a>
+                            <a href="{{route('adminPanal.brands')}}" class="dropdown-item">Brands</a>
+                            <a href="{{route('adminPanal.brandAdd')}}" class="dropdown-item">brandAdd</a>
                          
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Categories</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-table me-2"></i>Products</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{route('products')}}" class="dropdown-item">category</a>
-                            <a href="{{route('productAdd')}}" class="dropdown-item">categoryAdd</a>
+                            <a href="{{route('adminPanal.product')}}" class="dropdown-item">Product</a>
+                            <a href="{{route('adminPanal.productAdd')}}" class="dropdown-item">ProductAdd</a>
                          
                         </div>
                     </div>
